@@ -65,7 +65,7 @@
 
 @media (max-width: 767px) {
   .menu__mobile-button {
-    display: inline-block !important;
+    /* display: inline-block !important; */
   }
 
   .menu_left,

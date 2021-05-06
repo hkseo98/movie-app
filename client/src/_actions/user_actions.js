@@ -37,6 +37,16 @@ export function auth(){
     }
 }
 
+export function findUser(dataToSubmit){
+    const request = axios.get(`http://localhost:5000/find/`, dataToSubmit)
+    .then(response => response.data);
+
+    return {
+        type: AUTH_USER,
+        payload: request
+    }
+}
+
 export function logoutUser(){
     const request = axios.get(`${USER_SERVER}/logout`)
     .then(response => response.data);

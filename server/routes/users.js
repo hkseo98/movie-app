@@ -9,6 +9,8 @@ const { auth } = require("../middleware/auth");
 //=================================
 
 
+
+
 router.post("/register", (req, res) => {
 
     const user = new User(req.body);
@@ -53,6 +55,17 @@ router.get("/logout", auth, (req, res) => {
         return res.status(200).send({
             success: true
         });
+    });
+});
+
+router.get("/find", (req, res) => {
+    User.findOne({ email: req.body.email }, (err, user) => {
+        if (!user)
+            return res.json({
+                success: false,
+                message: "Auth failed, email not found"
+            });
+        return res.json({ success: true, user: user })
     });
 });
 
