@@ -63,9 +63,11 @@
   padding: 14px 24px !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 650px) {
   .menu__mobile-button {
-    /* display: inline-block !important; */
+    display: flex !important;
+    width: 30px;
+    margin-top: 17px;
   }
 
   .menu_left,

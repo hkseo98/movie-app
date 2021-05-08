@@ -3,7 +3,7 @@ import LeftMenu from './Sections/LeftMenu';
 import RightMenu from './Sections/RightMenu';
 import { Drawer, Button } from 'antd';
 import './Sections/Navbar.css';
-import Icon from '@ant-design/icons';
+import { AiOutlineMenuFold } from 'react-icons/ai';
 import { FaBeer } from "react-icons/fa";
 
 function NavBar() {
@@ -34,7 +34,7 @@ function NavBar() {
           type="primary"
           onClick={showDrawer}
         >
-          <Icon type="align-right" />
+          <AiOutlineMenuFold type="align-right" />
         </Button>
         <Drawer
           title="Basic Drawer"

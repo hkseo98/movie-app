@@ -16,6 +16,7 @@
   "author": "John ahn",
   "license": "ISC",
   "dependencies": {
+    "@react-icons/all-files": "^4.1.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
@@ -25,12 +26,13 @@
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
     "mongoose": "^5.4.20",
+    "react-icons": "^4.2.0",
     "react-redux": "^5.0.7",
     "saslprep": "^1.0.3",
     "supports-color": "^7.1.0"
   },
   "devDependencies": {
-    "concurrently": "^6.0.2",
+    "concurrently": "^3.5.1",
     "nodemon": "^1.19.1"
   }
 }

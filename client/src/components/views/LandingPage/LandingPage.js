@@ -38,7 +38,10 @@ function LandingPage() {
     return (
         <div style={{ width: '100%', margin: '0'}}>
             
-            {MainMovieImage != null && <MainImage image={`${IMAGE_BASE_URL}w1280${MainMovieImage.backdrop_path}`} title={MainMovieImage.title} desc={MainMovieImage.overview}/>}
+            {MainMovieImage != null && <MainImage 
+            image={`${IMAGE_BASE_URL}w1280${MainMovieImage.backdrop_path}`} 
+            title={MainMovieImage.title} 
+            desc={MainMovieImage.overview}/>}
 
             <div style={{ width:"85%", margin:"0rem auto", paddingTop:"6rem"}}>
                 <h2>Movies by latest</h2>
@@ -47,7 +50,9 @@ function LandingPage() {
                 <Row gutter={[10, 10]}>
                     {Movies && Movies.map((movie, index) => (
                         <React.Fragment key={index}>
-                            <GridCards image={movie.poster_path ? `${IMAGE_BASE_URL}w500${movie.poster_path}` : null}
+                            <GridCards 
+                            landingPage
+                            image={movie.poster_path ? `${IMAGE_BASE_URL}w500${movie.poster_path}` : null}
                             movieId={movie.id}
                             movieName={movie.original_title}></GridCards>
                         </React.Fragment>
