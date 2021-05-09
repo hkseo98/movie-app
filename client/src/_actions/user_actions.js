@@ -28,7 +28,7 @@ export function loginUser(dataToSubmit){
 }
 
 export function auth(){
-    const request = axios.get(`http://localhost:5000/`)
+    const request = axios.get(`${USER_SERVER}/auth`)
     .then(response => response.data);
 
     return {

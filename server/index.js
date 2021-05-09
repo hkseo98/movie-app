@@ -38,19 +38,6 @@ app.use('/api/users', require('./routes/users'));
 app.use('/api/favorite', require('./routes/favorite'))
 
 
-app.get("/", auth, (req, res) => {
-  res.status(200).json({
-      _id: req.user._id,
-      isAdmin: req.user.role === 0 ? false : true,
-      isAuth: true,
-      email: req.user.email,
-      name: req.user.name,
-      lastname: req.user.lastname,
-      role: req.user.role,
-      image: req.user.image,
-  });
-});
-
 //use this to show the image you have in node js server to client (react js)
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client
 app.use('/uploads', express.static('uploads'));
