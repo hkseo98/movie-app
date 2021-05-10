@@ -1,3 +1,4 @@
+const { compareSync } = require('bcrypt');
 const express = require('express');
 const router = express.Router();
 const { Favorite } = require('../models/Favorite')
@@ -63,5 +64,6 @@ router.post('/removeFromFavorite', (req, res) => {
             return res.status(200).json({ success: true })
         })
 })
+
 
 module.exports = router

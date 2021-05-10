@@ -6,12 +6,16 @@ import MovieInfo from './Section/MovieInfo'
 import GridCard from '../commons/GridCard'
 import { Row, Button } from 'antd'
 import Favorite from './Section/Favorite'
+import { Input } from 'antd'
+import Comment from './Section/Comment'
+
 
 function MovieDetail(props) {
     let movieId = props.match.params.movieId; // url에서 :뒤 부분 가져오는 방법
     const [Movie, setMovie] = useState([])
     const [Casts, setCasts] = useState([])
     const [isShown, setIsShown] = useState(false)
+    const [Comments, setComments] = useState([])
 
     useEffect(() => {
 
@@ -26,11 +30,27 @@ function MovieDetail(props) {
 
         axios.get(endPointCrew)
         .then(res => {
-            console.log(res)
             setCasts(res.data.cast)
         })
-            
+
+        let variable = {
+            movieId: movieId
+        }
+
+        axios.post('/api/comment/getComments', variable)
+            .then(res => {
+                if(res.data.success) {
+                    setComments(res.data.comments)
+                } else {
+                    alert('failed bringing comments')
+                }
+            })
+
     }, [])
+
+    const refreshFunction = (newComment) => {
+        setComments(Comments.concat(newComment))
+    }
 
     return (
         <div>
@@ -63,6 +83,8 @@ function MovieDetail(props) {
                         </React.Fragment>
                     ))}
                 </Row> : null}
+
+                <Comment movieId={movieId} comments={Comments} refreshFunction={refreshFunction}/>
 
             </div>
             
