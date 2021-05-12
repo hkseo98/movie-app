@@ -9,6 +9,7 @@ function ReplyComment(props) {
     useEffect(() => {
         let commentNumber = 0;
         props.comments.map((comment) => {
+            console.log(comment._id)
             if(comment.responseTo === props.parentCommentId) {
                 commentNumber++
             }
@@ -16,17 +17,20 @@ function ReplyComment(props) {
         setChildCommentNumber(commentNumber)
     }, [props.comments, props.parentCommentId])
 
-    const renderReplyComment = (parentCommentId) => {
+    const renderReplyComment = (parentCommentId) => 
         props.comments.map((comment, index) => (
-            <React.Fragment key={index}>
+            <React.Fragment>
                 {comment.responseTo === parentCommentId &&
-                    <div>
-                        <SingleComment comment={comment} movieId={props.movieId} refreshFunction={props.refreshFunction} />
-                        <ReplyComment comments={props.comments} parentCommentId={comment._id} movieId={props.movieId} refreshFunction={props.refreshFunction}/>
+                    <div style={{ width: '80%', marginLeft: '40px' }}>
+                        <SingleComment comment={comment} postId={props.postId} refreshFunction={props.refreshFunction} setShown={setShownHandler}/>
+                        <ReplyComment comments={props.comments} parentCommentId={comment._id} postId={props.postId} refreshFunction={props.refreshFunction} />
                     </div>
-                } 
+                }
             </React.Fragment>
         ))
+            
+    const setShownHandler = () => {
+        setShown(!shown)
     }
 
     const onClickHandler = () => {

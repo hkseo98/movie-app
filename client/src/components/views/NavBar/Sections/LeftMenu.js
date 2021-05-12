@@ -6,10 +6,10 @@ const MenuItemGroup = Menu.ItemGroup;
 function LeftMenu(props) {
   return (
     <Menu mode={props.mode}>
-      <Menu.Item key="mail">
+      <Menu.Item key="mail" style={{  marginTop:"10px",fontSize: "20px", fontWeight: "600"}}>
         <a href="/">Home</a>
       </Menu.Item>
-      <Menu.Item key="favorite">
+      <Menu.Item key="favorite" style={{  marginTop:"10px",fontSize: "20px", fontWeight: "600"}}>
         <a href="/favorite">favorite</a>
       </Menu.Item>
       

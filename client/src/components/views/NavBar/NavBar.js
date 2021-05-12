@@ -20,7 +20,9 @@ function NavBar() {
   return (
     <nav className="menu" style={{ position: 'fixed', zIndex: 5, width: '100%' }}>
       <div className="menu__logo">
-        <a href="/"><FaBeer style={{ fontSize: "50px", paddingBottom:"0px"}}></FaBeer></a>
+        <a href="/">
+          <img src='https://pngimage.net/wp-content/uploads/2018/06/video-camera-emoji-png-4.png' style={{ width: "50px", marginBottom: "10px" }}></img>
+        </a>
       </div>
       <div className="menu__container" style={{ marginTop:"10px"}}>
         <div className="menu_left">

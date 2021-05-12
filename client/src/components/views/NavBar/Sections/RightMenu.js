@@ -23,17 +23,17 @@ function RightMenu(props) {
   if (user.userData && !user.userData.isAuth) {
     return (
       <Menu mode={props.mode}>
-        <Menu.Item key="mail">
+        <Menu.Item key="mail" style={{  marginTop:"10px",fontSize: "20px", fontWeight: "600"}}>
           <a href="/login">Signin</a>
         </Menu.Item>
-        <Menu.Item key="app">
+        <Menu.Item key="app" style={{  marginTop:"10px",fontSize: "20px", fontWeight: "600"}}>
           <a href="/register">Signup</a>
         </Menu.Item>
       </Menu>
     )
   } else {
     return (
-      <Menu mode={props.mode}>
+      <Menu mode={props.mode} style={{  marginTop:"10px",fontSize: "20px", fontWeight: "600"}}>
         <Menu.Item key="logout">
           <a onClick={logoutHandler}>Logout</a>
         </Menu.Item>

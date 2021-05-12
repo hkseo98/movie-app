@@ -20,6 +20,7 @@ body {
 }
 
 .app {
+  font-family: Helvetica;
   flex-direction: column;
   display: flex;
   justify-content: center;

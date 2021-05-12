@@ -2,6 +2,7 @@ import React, {useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Comment, Avatar, Button, Input } from 'antd'
 import axios from 'axios'
+import LikeDislikes from './LikeDislikes'
 const { TextArea } = Input
 
 
@@ -18,10 +19,6 @@ function SingleComment(props) {
     const handleChange = (event) => {
         setCommentValue(event.target.value)
     }
-
-    const actions = [
-        <span onClick={onClickReply} key="comment-basic-reply-to"> Reply to </span>
-    ]
 
     const onSubmit = (event) => {
         event.preventDefault()
@@ -42,7 +39,13 @@ function SingleComment(props) {
                     alert('failed saving comment')
                 }
             })
+        setOpenReply(!OpenReply)
     }
+
+    const actions = [
+        <LikeDislikes commentId={props.comment._id} userId={user.userData._id}/>,
+        <span style={{ marginLeft: "15px"}} onClick={onClickReply} key="comment-basic-reply-to"> Reply to </span>,
+    ]
 
     return (
         <div>
@@ -52,7 +55,7 @@ function SingleComment(props) {
                 avatar={<Avatar src={props.comment.writer.image} alt="image" />}
                 content={ <p>{props.comment.content}</p> }></Comment>
                 {OpenReply &&
-                <form style={{ display: 'flex' }}>
+                <form style={{ display: 'flex', width: "80%"}}>
                     <TextArea
                         style={{ width: '100%', borderRadius: '5px', height: '50px' }}
                         onChange={handleChange}
